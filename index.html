@@ -5,29 +5,8 @@
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-  </head>
-<body>
-  <a-scene>
-    <a-assets>
-      <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-
-      <!-- Images. -->
-      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-    
-      <script id="plane" type="text/html">
-        <a-entity class="link"
-          geometry="primitive: plane; height: 1; width: 1"
-          material="shader: flat; src: ${thumb}"
-          sound="on: click; src: #click-sound">
-        </a-entity>
-      </script>
-
-      <script id="link" type="text/html">
+  
+    <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
         material="shader: flat; src: ${thumb}"
@@ -38,6 +17,18 @@
         proxy-event="event: click; to: #image-360; as: fade">
       </a-entity>
     </script>
+  </head>
+<body>
+  <a-scene>
+    <a-assets>
+      <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      <!-- Images. -->
+      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
     </a-assets>
 
     <!-- 360-degree image. -->
@@ -49,9 +40,9 @@
 
     <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4">
       <!-- Pass image sources to the template. -->
-      <a-entity template="src: #plane" data-src="#city" data-thumb="#city-thumb"></a-entity>
-      <a-entity template="src: #plane" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-      <a-entity template="src: #plane" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
     </a-entity>
 
      <!-- Camera + Cursor. -->
