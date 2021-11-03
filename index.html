@@ -10,7 +10,8 @@
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
         material="shader: flat; src: ${thumb}"
-        sound="on: click; src: #click-sound"></a-entity>
+        sound="on: click; src: #click-sound"
+        proxy-event="event: click; to: #image-360; as: fade"></a-entity>
     </script>
     
     <script id="link" type="text/html">
