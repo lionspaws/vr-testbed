@@ -6,13 +6,7 @@
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
 
-    <script id="plane" type="text/html">
-      <a-entity class="link"
-        geometry="primitive: plane; height: 1; width: 1"
-        material="shader: flat; src: ${thumb}"
-        sound="on: click; src: #click-sound">
-      </a-entity>
-    </script>
+    
 
     <script id="link" type="text/html">
       <a-entity class="link"
@@ -38,6 +32,14 @@
       <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
       <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
       <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+    
+      <script id="plane" type="text/html">
+        <a-entity class="link"
+          geometry="primitive: plane; height: 1; width: 1"
+          material="shader: flat; src: ${thumb}"
+          sound="on: click; src: #click-sound">
+        </a-entity>
+      </script>
     </a-assets>
 
     <!-- 360-degree image. -->
