@@ -9,6 +9,7 @@
     <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
+        rotation="-100 0 0"
         material="shader: flat; src: ${thumb}"
         sound="on: click; src: #click-sound"
         event-set__mouseenter="scale: 1.2 1.2 1"
@@ -50,7 +51,7 @@
 
     <a-entity id="links" layout="type: circle; radius:3; margin: 1.5" position="0 -1 -4" rotation="90 0 0">
       <!-- Pass image sources to the template. -->
-      <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb" rotation="-100 0 0"></a-entity>
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#isl" data-thumb="#isl-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pm1" data-thumb="#pm1-thumb"></a-entity>
