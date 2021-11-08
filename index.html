@@ -6,10 +6,10 @@
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
-  
+    <!-- Button template -->
     <script id="link" type="text/html">
       <a-entity class="link"
-        geometry="primitive: sphere; height: 1; width: 1"
+        geometry="primitive: plane; height: 1; width: 1"
         billboard
         material="shader: flat; src: ${thumb}"
         sound="on: click; src: #click-sound"
@@ -53,10 +53,10 @@
     <a-entity id="links" layout="type: circle; radius:3; margin: 1.5" position="0 0 0" rotation="90 0 0">
       <!-- Pass image sources to the template. -->
       <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
+      <!-- <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#isl" data-thumb="#isl-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pm1" data-thumb="#pm1-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#pm2" data-thumb="#pm2-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pm2" data-thumb="#pm2-thumb"></a-entity> -->
     </a-entity>
 
      <!-- Camera + Cursor. -->
