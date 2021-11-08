@@ -22,7 +22,7 @@
   <a-scene>
     <a-assets>
       <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-      <!-- Images. -->
+      <!-- 360 Images -->
       <img id="isl" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/isl.jpeg">
       <img id="llq" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/llandinam-quad.jpeg">
       <img id="pond" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-pond.jpeg">
@@ -33,10 +33,10 @@
       <img id="pa" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-a.jpeg">
       <img id="pb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-b.jpeg">
       <img id="rw" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/robotics-workshop.jpeg">
-
-      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+      <!-- Buttons -->
+      <img id="isl-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/isl-thumb.jpeg">
+      <img id="llq-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/llandinam-quad-thumb.jpeg">
+      <img id="pond-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-pond-thumb.jpeg">
     </a-assets>
 
     <!-- 360-degree image. -->
@@ -48,9 +48,9 @@
 
     <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4">
       <!-- Pass image sources to the template. -->
-      <a-entity template="src: #link" data-src="#llq" data-thumb="#city-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#pond" data-thumb="#cubes-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#pm2" data-thumb="#sechelt-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#isl" data-thumb="#isl-thumb"></a-entity>
     </a-entity>
 
      <!-- Camera + Cursor. -->
