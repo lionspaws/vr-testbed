@@ -39,6 +39,12 @@
       <img id="pond-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-pond-thumb.jpeg">
       <img id="pm1-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main1-thumb.jpeg">
       <img id="pm2-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main2-thumb.jpeg">
+
+      <img id="pf1-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer1-thumb.jpeg">
+      <img id="pf2-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer2-thumb.jpeg">
+      <img id="pa-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-a-thumb.jpeg">
+      <img id="pb-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-b-thumb.jpeg">
+      <img id="rw-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/robotics-workshop-thumb.jpeg">
     </a-assets>
 
     <!-- 360-degree image. -->
@@ -48,13 +54,20 @@
       animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
     </a-sky>
 
-    <a-entity id="links" layout="type: box; columns: 4; margin: 1.5" position="0 0 -3">
+    <a-entity id="links" layout="type: box; columns: 5; margin: 1.2" position="0 0 -4">
       <!-- Pass image sources to the template. -->
+      <!-- row 1 -->
       <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#isl" data-thumb="#isl-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pm1" data-thumb="#pm1-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#pm2" data-thumb="#pm2-thumb"></a-entity>
+      <!-- row 2 -->
+      <a-entity template="src: #link" data-src="#pf1" data-thumb="#pf1-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pf2" data-thumb="#pf2-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pa" data-thumb="#pa-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pb" data-thumb="#pb-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#rw" data-thumb="#rw-thumb"></a-entity>
     </a-entity>
 
      <!-- Camera + Cursor. -->
