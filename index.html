@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>360° Image Browser</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    <!-- Button template -->
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        sound="on: click; src: #click-sound"
+        event-set__mouseenter="scale: 1.2 1.2 1"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+        proxy-event="event: click; to: #image-360; as: fade">
+      </a-entity>
+    </script>
+  </head>
+<body>
+  <a-scene>
+    <a-assets>
+      <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      <!-- 360 Images -->
+      <img id="isl" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/isl.jpeg">
+      <img id="llq" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/llandinam-quad.jpeg">
+      <img id="pond" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-pond.jpeg">
+      <img id="pm1" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main1.jpeg">
+      <img id="pm2" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main2.jpeg">
+      <img id="pf1" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer1.jpeg">
+      <img id="pf2" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer2.jpeg">
+      <img id="pa" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-a.jpeg">
+      <img id="pb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-b.jpeg">
+      <img id="rw" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/robotics-workshop.jpeg">
+      <!-- Buttons -->
+      <img id="isl-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/isl-thumb.jpeg">
+      <img id="llq-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/llandinam-quad-thumb.jpeg">
+      <img id="pond-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-pond-thumb.jpeg">
+      <img id="pm1-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main1-thumb.jpeg">
+      <img id="pm2-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-main2-thumb.jpeg">
+      <img id="pf1-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer1-thumb.jpeg">
+      <img id="pf2-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/psb-foyer2-thumb.jpeg">
+      <img id="pa-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-a-thumb.jpeg">
+      <img id="pb-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/phys-b-thumb.jpeg">
+      <img id="rw-thumb" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/assets/robotics-workshop-thumb.jpeg">
+    </a-assets>
+
+    <!-- 360-degree image. -->
+    <a-sky
+      id="image-360" radius="10" src="#llq"
+      animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+      animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+    </a-sky>
+
+    <a-entity id="links" layout="type: box; columns: 5; margin: 1.2" position="-2.5 -1 -4">
+      <!-- Pass image sources to the template. -->
+      <!-- row 1 (left to right, bottom upwards) -->
+      <a-entity template="src: #link" data-src="#pa" data-thumb="#pa-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pb" data-thumb="#pb-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#rw" data-thumb="#rw-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#isl" data-thumb="#isl-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pm2" data-thumb="#pm2-thumb"></a-entity>
+      <!-- row 2 -->
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#llq-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pf1" data-thumb="#pf1-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pf2" data-thumb="#pf2-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pond" data-thumb="#pond-thumb"></a-entity>
+      <a-entity template="src: #link" data-src="#pm1" data-thumb="#pm1-thumb"></a-entity>
+    </a-entity>
+
+     <!-- Camera + Cursor. -->
+     <a-camera>
+      <a-cursor
+        id="cursor"
+        animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+        animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
