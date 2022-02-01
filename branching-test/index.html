@@ -20,14 +20,14 @@
   </head>
 <body>
   <a-scene>
-    <a-assets>
+    <a-assets>branching-test/assets/btn-a.jpg
       <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       <!-- 360 Images -->
       <img id="llq" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/acs-360/assets/llandinam-quad.jpeg">
       <img id="pond" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/acs-360/assets/psb-pond.jpeg">
       <!-- Buttons -->
-      <img id="btn-a" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/branching-test/assets/btn-a.jpg">
-      <img id="btn-b" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/branching-test/assets/btn-b.jpg">
+      <img id="a" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/branching-test/assets/btn-a.jpg">
+      <img id="b" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/branching-test/assets/btn-b.jpg">
     </a-assets>
 
     <!-- 360-degree image. -->
@@ -37,10 +37,10 @@
       animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
     </a-sky>
 
-    <a-entity id="links" layout="type: box; columns: 2; margin: 1.2" position="-1 0 -5">
+    <a-entity id="links" layout="type: box; columns: 2; margin: 3" position="-1 0 -5">
       <!-- Pass image sources to the template. -->
-      <a-entity template="src: #link" data-src="#llq" data-thumb="#btn-a"></a-entity>
-      <a-entity template="src: #link" data-src="#pond" data-thumb="#btn-b"></a-entity>
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
+      <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
     </a-entity>
 
      <!-- Camera + Cursor. -->
