@@ -5,6 +5,21 @@
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-state-component@6.7.0/dist/aframe-state-component.min.js"></script>
+    <!-- state setup -->
+    <script>
+    AFRAME.registerState({
+      initialState: {
+        choiceState: '0'
+      },
+ 
+      handlers: {
+        addChoice: function (state, action) {
+          state.choiceState += action.choice;
+        }
+      },
+    });
+  </script> 
     <!-- Button template -->
     <script id="link" type="text/html">
       <a-entity class="link"
@@ -14,13 +29,14 @@
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
         event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-        proxy-event="event: click; to: #image-360; as: fade">
+        proxy-event="event: click; to: #image-360; as: fade"
+        proxy-event="event: click; to: a-scene; as: addChoice, {choice: 1}">
       </a-entity>
     </script>
   </head>
 <body>
   <a-scene>
-    <a-assets>branching-test/assets/btn-a.jpg
+    <a-assets>
       <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       <!-- 360 Images -->
       <img id="llq" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/acs-360/assets/llandinam-quad.jpeg">
@@ -42,6 +58,10 @@
       <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
       <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
     </a-entity>
+
+    <script>
+      console.log(choiceState);
+    </script>
 
      <!-- Camera + Cursor. -->
      <a-camera>
