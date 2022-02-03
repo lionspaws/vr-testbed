@@ -16,16 +16,13 @@
     event-set__mouseenter="scale: 1.2 1.2 1"
     event-set__mouseleave="scale: 1 1 1"
     event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-    proxy-event="event: click; to: #image-360; as: fade"
-    log="just checkin!">
+    proxy-event="event: click; to: #image-360; as: fade; log=${thumb-val}">
   </a-entity>
 </script>
 </head>
 <body>
   <a-scene>
-    <a-entity log="value: app.choiceState"></a-entity>
     <a-assets>
-      <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg" crossorigin="anonymous"></audio>
       <!-- 360 Images -->
       <img id="llq" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/acs-360/assets/llandinam-quad.jpeg" crossorigin="anonymous">
       <img id="pond" src="https://cdn.jsdelivr.net/gh/lionspaws/vr-testbed@master/acs-360/assets/psb-pond.jpeg" crossorigin="anonymous">
@@ -43,8 +40,8 @@
 
     <a-entity id="links" layout="type: box; columns: 2; margin: 3" position="-1 0 -5">
       <!-- Pass image sources to the template. -->
-      <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
-      <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#a" thumb-val="a"></a-entity>
+      <a-entity template="src: #link" data-src="#pond" data-thumb="#b" thumb-val="b"></a-entity>
     </a-entity>
 
     <!-- Camera + Cursor. -->
