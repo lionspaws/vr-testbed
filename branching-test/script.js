@@ -1,15 +1,21 @@
 var state = 0;
 
-AFRAME.registerComponent('a', {
+AFRAME.registerComponent('state-a-click', {
   init: function () {
-    state++;
-    console.log(state);
+    var el = this.el;
+    this.el.addEventListener('click', function () {
+      state++;
+      console.log(state);
+    });
   }
 });
 
-AFRAME.registerComponent('b', {
+AFRAME.registerComponent('state-b-click', {
   init: function () {
-    state--;
-    console.log(state);
+    var el = this.el;
+    this.el.addEventListener('click', function () {
+      state--;
+      console.log(state);
+    });
   }
 });
