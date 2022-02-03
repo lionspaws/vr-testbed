@@ -1,20 +1,15 @@
-AFRAME.registerComponent('log', {
-  schema: {type: 'string'},
+var state = 0;
 
+AFRAME.registerComponent('a', {
   init: function () {
-    var stringToLog = this.data;
-    console.log(stringToLog);
+    state++;
+    console.log(state);
   }
 });
 
-AFRAME.registerState({
-  initialState: {
-    choiceState: 0
-  },
-
-  handlers: {
-    addChoice: function (state) {
-      state.choiceState += 1;
-    }
-  },
+AFRAME.registerComponent('b', {
+  init: function () {
+    state--;
+    console.log(state);
+  }
 });
