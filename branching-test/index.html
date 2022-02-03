@@ -6,29 +6,7 @@
   <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-state-component@6.7.0/dist/aframe-state-component.min.js"></script>
-  <!-- state setup -->
-  <script>
-    AFRAME.registerComponent('log', {
-      schema: {type: 'string'},
-
-      init: function () {
-        var stringToLog = this.data;
-        console.log(stringToLog);
-      }
-    });
-
-    AFRAME.registerState({
-      initialState: {
-        choiceState: 0
-      },
-
-      handlers: {
-        addChoice: function (state) {
-          state.choiceState += 1;
-        }
-      },
-    });
-  </script> 
+  <script src="script.js"></script>
   <!-- Button template -->
   <script id="link" type="text/html">
     <a-entity class="link"
@@ -39,7 +17,7 @@
     event-set__mouseleave="scale: 1 1 1"
     event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
     proxy-event="event: click; to: #image-360; as: fade"
-    proxy-event="event: click; to: a-scene; as: addChoice">
+    log="just checkin!">
   </a-entity>
 </script>
 </head>
@@ -58,25 +36,26 @@
 
     <!-- 360-degree image. -->
     <a-sky
-    id="image-360" radius="10" src="#llq"
-    animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-    animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
-  </a-sky>
+      id="image-360" radius="10" src="#llq"
+      animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+      animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+    </a-sky>
 
-  <a-entity id="links" layout="type: box; columns: 2; margin: 3" position="-1 0 -5">
-    <!-- Pass image sources to the template. -->
-    <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
-    <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
-  </a-entity>
+    <a-entity id="links" layout="type: box; columns: 2; margin: 3" position="-1 0 -5">
+      <!-- Pass image sources to the template. -->
+      <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
+      <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
+    </a-entity>
 
-  <!-- Camera + Cursor. -->
-  <a-camera>
-    <a-cursor
-    id="cursor"
-    animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-    animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
-    animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
-  </a-camera>
-</a-scene>
+    <!-- Camera + Cursor. -->
+    <a-camera>
+      <a-cursor
+        id="cursor"
+        animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+        animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing">
+      </a-cursor>
+    </a-camera>
+  </a-scene>
 </body>
 </html>
