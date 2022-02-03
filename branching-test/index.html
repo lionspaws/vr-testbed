@@ -53,10 +53,10 @@
       animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
     </a-sky>
 
-    <a-entity id="links" layout="type: box; columns: 2; margin: 3" position="-1 0 -5">
+    <a-entity id="links" layout="type: box; columns: 3; margin: 3" position="-1 0 -5">
       <!-- Pass image sources to the template. -->
       <a-entity template="src: #link" data-src="#llq" data-thumb="#a"></a-entity>
-      <a-entity bind="text.value: score"></a-entity>
+      <a-entity geometry="primitive: plane; width: 4; height: auto" material="color: blue" bind="text.value: score"></a-entity>
       <a-entity template="src: #link" data-src="#pond" data-thumb="#b"></a-entity>
     </a-entity>
 
